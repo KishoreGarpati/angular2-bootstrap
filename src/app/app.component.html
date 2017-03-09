@@ -1,3 +1,53 @@
-<h1>
-  {{title}}
-</h1>
+   <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">{{owner.name}}s Representation</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="#">About</a>
+                    </li>
+                    <li>
+                        <a href="#">Admin</a>
+                    </li>
+                    <li>
+                        <a href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+</nav>
+
+<div class="container" id="maincontainer">
+  <div class="row">
+    <div class="col-lg-6">
+      <img id="avatar" class="img-responsive center-block" src="assets/img/avatar.png">
+      <h1>About Me
+        <small>It's Nice to Meet You!</small>
+      </h1>
+      <h4>{{owner.name}} is a {{owner.age}} years old {{owner.jobtitle}}, working for {{owner.company}} in {{owner.country}}.</h4>
+    </div>
+    <div class="col-lg-6">
+      <carousel>
+        <slide *ngFor="let task of tasks">
+          <img id="carouselImg" [src]="getRdmImage(task.id)" alt="First slide">
+          <div class="carousel-caption">
+            <h3>{{task.title}}</h3>
+            <p>{{task.description}}</p>
+          </div>
+        </slide>
+      </carousel>
+    </div>
+  </div>
+
+  <div class="footer navbar-fixed-bottom">
+    <h4 id="footerLabel">Copyright {{owner.name}} 2016</h4>
+  </div>
+</div>
